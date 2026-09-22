@@ -1,0 +1,5 @@
+.data
+texto: .asciiz "Linha 1\nLinha 2\t\"ok\"\\fim"
+.text
+main:
+nop

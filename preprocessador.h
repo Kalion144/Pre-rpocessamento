@@ -23,4 +23,7 @@
  */
 int preprocessar(FILE *entrada, FILE *saida);
 
+/* Nome exigido no enunciado da segunda etapa. */
+int PreProcessamento(FILE *entrada, FILE *saida);
+
 #endif

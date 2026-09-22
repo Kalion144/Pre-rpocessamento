@@ -143,3 +143,7 @@ int preprocessar(FILE *entrada, FILE *saida) {
 
     return 1;
 }
+
+int PreProcessamento(FILE *entrada, FILE *saida) {
+    return preprocessar(entrada, saida);
+}

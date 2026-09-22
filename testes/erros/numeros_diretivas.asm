@@ -1,0 +1,5 @@
+.dados
+.text
+main:
+    li $t0, 0xG1
+    li $t1, 2valor

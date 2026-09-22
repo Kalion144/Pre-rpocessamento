@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+  <defs>
+    <marker id="seta" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+    <style>
+      .titulo{font:700 30px Arial;fill:#0f172a}.sub{font:18px Arial;fill:#475569}.estado{fill:#eff6ff;stroke:#2563eb;stroke-width:3}.final{fill:#ecfdf5;stroke:#059669;stroke-width:5}.erro{fill:#fef2f2;stroke:#dc2626;stroke-width:4}.txt{font:700 17px Arial;fill:#0f172a;text-anchor:middle}.rot{font:15px Arial;fill:#334155;text-anchor:middle}.linha{stroke:#334155;stroke-width:2.4;fill:none;marker-end:url(#seta)}
+    </style>
+  </defs>
+  <rect width="1600" height="1050" fill="white"/>
+  <text x="800" y="45" class="titulo" text-anchor="middle">AFD - Analisador lexico Assembly MIPS</text>
+  <text x="800" y="75" class="sub" text-anchor="middle">Estados finais em verde; estados de erro em vermelho</text>
+
+  <path class="linha" d="M40 510 H125"/><text x="75" y="495" class="rot">inicio</text>
+  <circle cx="175" cy="510" r="50" class="estado"/><text x="175" y="505" class="txt">q0</text><text x="175" y="528" class="rot">inicial</text>
+
+  <path class="linha" d="M213 478 L340 350"/><text x="270" y="395" class="rot">letra ou _</text>
+  <circle cx="395" cy="310" r="62" class="final"/><circle cx="395" cy="310" r="55" fill="none" stroke="#059669" stroke-width="2"/><text x="395" y="303" class="txt">ID /</text><text x="395" y="327" class="txt">instrucao</text>
+
+  <path class="linha" d="M225 495 L500 420"/><text x="355" y="444" class="rot">.</text>
+  <circle cx="570" cy="400" r="58" class="final"/><circle cx="570" cy="400" r="51" fill="none" stroke="#059669" stroke-width="2"/><text x="570" y="406" class="txt">diretiva</text>
+
+  <path class="linha" d="M225 510 H690"/><text x="460" y="496" class="rot">$</text>
+  <circle cx="760" cy="510" r="64" class="final"/><circle cx="760" cy="510" r="57" fill="none" stroke="#059669" stroke-width="2"/><text x="760" y="516" class="txt">registrador</text>
+
+  <path class="linha" d="M215 540 L345 660"/><text x="270" y="625" class="rot">digito</text>
+  <circle cx="400" cy="700" r="57" class="final"/><circle cx="400" cy="700" r="50" fill="none" stroke="#059669" stroke-width="2"/><text x="400" y="706" class="txt">decimal</text>
+  <path class="linha" d="M457 700 H565"/><text x="510" y="685" class="rot">x apos 0</text>
+  <circle cx="625" cy="700" r="53" class="estado"/><text x="625" y="694" class="txt">prefixo</text><text x="625" y="717" class="txt">0x</text>
+  <path class="linha" d="M678 700 H790"/><text x="735" y="685" class="rot">0-9, a-f</text>
+  <circle cx="860" cy="700" r="62" class="final"/><circle cx="860" cy="700" r="55" fill="none" stroke="#059669" stroke-width="2"/><text x="860" y="706" class="txt">hexadecimal</text>
+
+  <path class="linha" d="M196 556 L278 790"/><text x="217" y="690" class="rot">-</text>
+  <circle cx="300" cy="850" r="55" class="estado"/><text x="300" y="856" class="txt">negativo</text>
+  <path class="linha" d="M335 808 L375 755"/><text x="380" y="790" class="rot">digito</text>
+
+  <path class="linha" d="M191 460 L235 195"/><text x="190" y="320" class="rot">aspas</text>
+  <circle cx="250" cy="135" r="53" class="estado"/><text x="250" y="141" class="txt">string</text>
+  <path class="linha" d="M303 135 H405"/><text x="355" y="120" class="rot">barra</text>
+  <circle cx="465" cy="135" r="52" class="estado"/><text x="465" y="141" class="txt">escape</text>
+  <path class="linha" d="M450 185 Q350 245 280 180"/><text x="365" y="235" class="rot">n,t,aspas,barra,0</text>
+  <path class="linha" d="M280 88 L355 55"/><text x="330" y="72" class="rot">aspas</text>
+  <circle cx="420" cy="45" r="38" class="final"/><circle cx="420" cy="45" r="32" fill="none" stroke="#059669" stroke-width="2"/><text x="420" y="51" class="txt">STRING</text>
+
+  <path class="linha" d="M220 535 L520 890"/><text x="420" y="810" class="rot">#</text>
+  <circle cx="575" cy="940" r="58" class="estado"/><text x="575" y="946" class="txt">comentario</text>
+  <path class="linha" d="M225 525 L1000 610"/><text x="620" y="555" class="rot">, : ( )</text>
+  <circle cx="1070" cy="620" r="57" class="final"/><circle cx="1070" cy="620" r="50" fill="none" stroke="#059669" stroke-width="2"/><text x="1070" y="626" class="txt">simbolo</text>
+
+  <path class="linha" d="M224 480 L1070 250"/><text x="780" y="315" class="rot">entrada invalida ou estado sem transicao valida</text>
+  <circle cx="1140" cy="230" r="58" class="erro"/><circle cx="1140" cy="230" r="51" fill="none" stroke="#dc2626" stroke-width="2"/><text x="1140" y="236" class="txt">ERRO</text>
+
+  <text x="395" y="390" class="rot">laco: letra, digito, _</text>
+  <text x="570" y="480" class="rot">laco: letra, digito, _</text>
+  <text x="760" y="590" class="rot">laco: letra ou digito</text>
+  <text x="400" y="775" class="rot">laco: digito</text>
+  <text x="860" y="780" class="rot">laco: 0-9, a-f</text>
+  <text x="250" y="210" class="rot">laco: caractere comum</text>
+  <text x="575" y="1015" class="rot">laco: ate nova linha ou EOF</text>
+</svg>

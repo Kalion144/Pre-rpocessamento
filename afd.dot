@@ -1,0 +1,48 @@
+digraph AnalisadorLexico {
+    rankdir=LR;
+    node [shape=circle, fontname="Arial"];
+    inicio [shape=point];
+    q0 [label="q0\ninicial"];
+    id [label="ID /\ninstrucao", shape=doublecircle];
+    dir [label="diretiva", shape=doublecircle];
+    reg [label="registrador", shape=doublecircle];
+    dec [label="decimal", shape=doublecircle];
+    hexp [label="prefixo 0x"];
+    hex [label="hexadecimal", shape=doublecircle];
+    neg [label="negativo"];
+    str [label="string"];
+    esc [label="escape"];
+    strfim [label="STRING", shape=doublecircle];
+    com [label="comentario"];
+    simbolo [label="simbolo", shape=doublecircle];
+    erro [label="erro", shape=doublecircle, color=red];
+
+    inicio -> q0;
+    q0 -> id [label="letra ou _"];
+    id -> id [label="letra, digito, _"];
+    q0 -> dir [label="."];
+    dir -> dir [label="letra, digito, _"];
+    q0 -> reg [label="$"];
+    reg -> reg [label="letra ou digito"];
+    q0 -> dec [label="digito"];
+    dec -> dec [label="digito"];
+    dec -> hexp [label="x apos 0"];
+    hexp -> hex [label="0-9, a-f"];
+    hex -> hex [label="0-9, a-f"];
+    q0 -> neg [label="-"];
+    neg -> dec [label="digito"];
+    q0 -> str [label="aspas"];
+    str -> str [label="caractere comum"];
+    str -> esc [label="barra"];
+    esc -> str [label="n, t, aspas, barra, 0"];
+    str -> strfim [label="aspas"];
+    q0 -> com [label="#"];
+    com -> com [label="ate nova linha"];
+    q0 -> simbolo [label=", : ( )"];
+    q0 -> erro [label="outro"];
+    dir -> erro [label="diretiva invalida"];
+    reg -> erro [label="registrador invalido"];
+    hexp -> erro [label="nao hexadecimal"];
+    str -> erro [label="nova linha ou EOF"];
+    esc -> erro [label="escape invalido"];
+}
